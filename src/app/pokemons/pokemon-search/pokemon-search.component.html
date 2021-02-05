@@ -1,7 +1,7 @@
 <div id="search-component">
   <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  <ul class="search-result" *ngIf="(pokemonsData | async) != null">
-    <li  *ngFor="let pokemon of (pokemonsData | async).data" >
+  <ul class="search-result">
+    <li  *ngFor="let pokemon of (pokemonsData | async)?.data" >
       <a (click)="updateId(pokemon.id)">
         {{pokemon.name}}
       </a>

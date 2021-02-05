@@ -38,7 +38,6 @@ export class PokemonService {
   }
 
   searchPokemons(term: string): Observable<PagedData<Pokemon>> {
-    console.log(term);
     if (!term.trim()) {
       return of(null);
     }

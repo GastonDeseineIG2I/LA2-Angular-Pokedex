@@ -1,3 +1,31 @@
+.pokemon-card {
+  width: 77vw;
+  height: 94vh;
+  margin: 10px 0 0 10px;
+}
 
+.mat-list-item {
+  height: auto;
+}
+
+.pokemon-id-footer {
+  text-align: center !important;
+  background: rgba(0, 0, 0, 0) !important;
+  margin-left: 280px !important;
+  position: sticky;
+  top: 500px;
+}
+
+mat-card-content {
+  font-size: 1.5rem;
+}
+
+.pokemon-name {
+  font-size: 3rem !important;
+}
+
+.attribut-list mat-list-item {
+  font-size: 2rem;
+}
 
 /*# sourceMappingURL=pokemon-detail.component.css.map */

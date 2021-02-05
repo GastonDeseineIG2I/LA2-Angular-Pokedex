@@ -1,4 +1,5 @@
-export interface Pokemon {
-  id: number;
-  name: string;
+export interface PagedData<T> {
+  offset: number;
+  limit: number;
+  data: T[];
 }

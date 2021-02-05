@@ -1,1 +1,7 @@
-<p>pokemon-list works!</p>
+
+<mat-list infiniteScroll [scrollWindow]="false" (scrolled)="onScroll()" *ngIf="pokemonsData">
+  <mat-list-item *ngFor="let pokemon of pokemonsData.data" (click)="updateId(pokemon.id)"><!--routerLink="/detail/{{pokemon.id}}"-->
+    <img matListAvatar src="assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.name}} avatar">
+    <h3 matLine> {{pokemon.id}}. {{pokemon.name}} </h3>
+  </mat-list-item>
+</mat-list>

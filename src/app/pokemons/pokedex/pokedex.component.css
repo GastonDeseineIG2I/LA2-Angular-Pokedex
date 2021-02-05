@@ -1,0 +1,10 @@
+.pokedex-drawer {
+  height: 100vh;
+}
+
+.pokedex-drawer mat-drawer {
+  width: 20vw;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=pokedex.component.css.map */

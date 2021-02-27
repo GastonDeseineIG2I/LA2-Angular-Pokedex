@@ -1,7 +1,8 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {PokemonService} from '../services/pokemon.service';
 import {Pokemon} from '../models/pokemon.model';
 import {PagedData} from '../models/paged-data.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'pkm-pokemon-list',
@@ -13,6 +14,7 @@ export class PokemonListComponent implements OnInit {
   pokemonsData: PagedData<Pokemon> = null;
   @Output() pokemonId  = new EventEmitter<number>();
 
+
   constructor( private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
@@ -20,6 +22,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemons(offset: number = 0, limit: number = 20): void {
+
     this.pokemonService.getPokemonsQuery(offset, limit).subscribe((pokemonsData: PagedData<Pokemon>) => this.pokemonsData = pokemonsData);
   }
 

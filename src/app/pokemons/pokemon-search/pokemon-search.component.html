@@ -1,10 +1,4 @@
-<div id="search-component">
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  <ul class="search-result">
-    <li  *ngFor="let pokemon of (pokemonsData | async)?.data" >
-      <a (click)="updateId(pokemon.id)">
-        {{pokemon.name}}
-      </a>
-    </li>
-  </ul>
-</div>
+<mat-form-field appearance="fill">
+  <mat-label>Input</mat-label>
+  <input matInput #searchBox id="search-box" (input)="emitInput(searchBox.value)">
+</mat-form-field>

@@ -1,6 +1,6 @@
 <mat-drawer-container class="pokedex-drawer">
   <mat-drawer mode="side" opened>
-    <pkm-pokemon-search (pokemonId)="onUpdate($event)"></pkm-pokemon-search>
+    <pkm-pokemon-search (searchTerm)="onSearch($event)"></pkm-pokemon-search>
     <pkm-pokemon-list (pokemonId)="onUpdate($event)"></pkm-pokemon-list>
   </mat-drawer>
   <mat-drawer-content>

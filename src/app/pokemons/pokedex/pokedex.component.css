@@ -1,10 +1,12 @@
 .pokedex-drawer {
-  height: 100vh;
+  height: 100vh !important;
+  overflow: hidden;
 }
 
 .pokedex-drawer mat-drawer {
   width: 20vw;
-  height: 100vh;
+  height: 100vh !important;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=pokedex.component.css.map */

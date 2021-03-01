@@ -37,12 +37,12 @@ export class PokemonService {
     );
   }
 
-  searchPokemons(term: string): Observable<PagedData<Pokemon>> {
+  searchPokemons(term: string, limit: number): Observable<PagedData<Pokemon>> {
     if (!term.trim()) {
       return of(null);
     }
 
-    return this.httpClient.get<PagedData<Pokemon>>(this.pokemonsUrl + '?search=' + term).pipe(
+    return this.httpClient.get<PagedData<Pokemon>>(this.pokemonsUrl + '?search=' + term + '&limit=' + limit ).pipe(
       catchError(this.handleError<PagedData<Pokemon>>('searchPokemons'))
     );
   }

@@ -12,6 +12,8 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -29,7 +31,9 @@ import { PokemonSearchComponent } from './pokemon-search/pokemon-search.componen
     MatGridListModule,
     MatChipsModule,
     InfiniteScrollModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class PokemonsModule { }

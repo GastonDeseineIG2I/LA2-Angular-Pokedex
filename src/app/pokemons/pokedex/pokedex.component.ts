@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {PagedData} from '../models/paged-data.model';
+import {Pokemon} from '../models/pokemon.model';
 
 @Component({
   selector: 'pkm-pokedex',
@@ -9,13 +12,18 @@ export class PokedexComponent implements OnInit {
 
   pokemonId = 1;
 
+  searchTerm;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onUpdate($event: number): void {
-    console.log($event);
     this.pokemonId = $event;
+  }
+
+  onSearch($event: string): void {
+    this.searchTerm = $event;
   }
 }

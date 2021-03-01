@@ -4,10 +4,11 @@ import {PokemonDetailComponent} from './pokemons/pokemon-detail/pokemon-detail.c
 import {PokemonListComponent} from './pokemons/pokemon-list/pokemon-list.component';
 import {PokedexComponent} from './pokemons/pokedex/pokedex.component';
 import {LoginComponent} from './pokemons/login/login.component';
+import {AuthGuard} from './pokemons/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/pokedex', pathMatch: 'full' },
-  { path: 'pokedex', component: PokedexComponent },
+  { path: 'pokedex', component: PokedexComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   /*{ path: 'pokemons', component: PokemonListComponent },
   { path: 'detail/:id', component: PokemonDetailComponent }*/

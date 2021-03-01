@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   email = new FormControl('', [Validators.required, Validators.email]);
+  pass = new FormControl('', [Validators.required]);
   hidePass = true;
 
   ngOnInit(): void {
@@ -27,11 +28,18 @@ export class LoginComponent implements OnInit {
 
   }
 
-  getErrorMessage(): string {
-    if (this.email.hasError('required')) {
-      return 'Vous devez entrer une valeur';
+  getErrorMessage( field: string ): string {
+    if ( field === 'email'){
+      if (this.email.hasError('required')) {
+        return 'Vous devez entrer une valeur';
+      }
+      return this.email.hasError('email') ? 'Format d\'email invalide' : '';
+    }else if ( field === 'pass' ){
+      if (this.pass.hasError('required')) {
+        return 'Vous devez entrer une valeur';
+      }
+    }else{
+      return '';
     }
-
-    return this.email.hasError('email') ? 'Format d\'email invalide' : '';
   }
 }

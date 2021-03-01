@@ -1,4 +1,8 @@
 <mat-card>
+  <mat-card-header>
+    <mat-card-title>Connexion</mat-card-title>
+  </mat-card-header>
+  <hr><br>
   <mat-card-content>
     <div class="login_form_div">
       <form (ngSubmit)="login()" class="login_form" #loginForm="ngForm">
@@ -6,17 +10,18 @@
           <mat-form-field appearance="fill">
             <mat-label>Entrez votre email</mat-label>
             <input matInput placeholder="pat@example.com" [formControl]="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
           </mat-form-field>
         </div>
 
         <div class="password_login_form">
           <mat-form-field appearance="fill">
             <mat-label>Entrez votre mot de passe</mat-label>
-            <input matInput [type]="hidePass ? 'password' : 'text'">
+            <input matInput [type]="hidePass ? 'password' : 'text'" [formControl]="pass" required>
             <button mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
               <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+            <mat-error *ngIf="pass.invalid">{{getErrorMessage('pass')}}</mat-error>
           </mat-form-field>
         </div>
         <button mat-raised-button color="accent" type='submit'>Se connecter</button>

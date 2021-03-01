@@ -24,8 +24,11 @@
             <mat-error *ngIf="pass.invalid">{{getErrorMessage('pass')}}</mat-error>
           </mat-form-field>
         </div>
-        <button mat-raised-button color="accent" type='submit'>Se connecter</button>
+        <button mat-raised-button color="accent" type='submit' [disabled]="!email.valid">Se connecter</button>
       </form>
+      <div *ngIf="showIncorrectIdMessage" role="alert" class="alert alert-danger">
+        Identifiants incorrects
+      </div>
     </div>
   </mat-card-content>
 </mat-card>

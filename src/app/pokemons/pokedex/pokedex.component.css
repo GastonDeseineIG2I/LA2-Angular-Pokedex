@@ -5,8 +5,15 @@
 
 .pokedex-drawer mat-drawer {
   width: 20vw;
-  height: 100vh !important;
+  height: 96vh !important;
   overflow: hidden;
+}
+
+#menu {
+  height: 4vh !important;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
 }
 
 /*# sourceMappingURL=pokedex.component.css.map */

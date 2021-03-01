@@ -1,3 +1,8 @@
+<div id="menu">
+  <button mat-icon-button color="primary" aria-label="Login" [routerLink]="['../login']">
+    <mat-icon>login</mat-icon>
+  </button>
+</div>
 <mat-drawer-container class="pokedex-drawer">
   <mat-drawer mode="side" opened disableClose >
     <pkm-pokemon-search (searchTerm)="onSearch($event)"></pkm-pokemon-search>

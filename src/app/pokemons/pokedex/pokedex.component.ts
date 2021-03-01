@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {PagedData} from '../models/paged-data.model';
-import {Pokemon} from '../models/pokemon.model';
 
 @Component({
   selector: 'pkm-pokedex',

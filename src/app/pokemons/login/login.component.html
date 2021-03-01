@@ -1,1 +1,26 @@
-<div>Login working</div>
+<mat-card>
+  <mat-card-content>
+    <div class="login_form_div">
+      <form (ngSubmit)="login()" class="login_form" #loginForm="ngForm">
+        <div class="email_login_form">
+          <mat-form-field appearance="fill">
+            <mat-label>Entrez votre email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="password_login_form">
+          <mat-form-field appearance="fill">
+            <mat-label>Entrez votre mot de passe</mat-label>
+            <input matInput [type]="hidePass ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
+              <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="accent" type='submit'>Se connecter</button>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>

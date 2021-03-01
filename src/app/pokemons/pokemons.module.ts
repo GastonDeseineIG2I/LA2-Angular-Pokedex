@@ -14,11 +14,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {LoginComponent} from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
 @NgModule({
-    declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent, PokemonSearchComponent],
+    declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent, PokemonSearchComponent, LoginComponent],
     exports: [
         PokemonListComponent
     ],
@@ -30,10 +33,13 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     MatGridListModule,
     MatChipsModule,
+    MatButtonModule,
     InfiniteScrollModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class PokemonsModule { }

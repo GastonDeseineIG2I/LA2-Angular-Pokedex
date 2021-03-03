@@ -9,7 +9,7 @@ import {tap} from 'rxjs/operators';
 })
 export class AuthService {
 
-  loginUrl = 'http://app-ec21e68e-3e55-42d7-b1ae-3eef7507a353.cleverapps.io/auth/login';
+  loginUrl = 'http://app-ec21e68e-3e55-42d7-b1ae-3eef7507a353.cleverapps.io/auth';
   logged = false;
   loginResponse: LoginResponse;
 
@@ -17,7 +17,7 @@ export class AuthService {
 
   login(email: string, pass: string): Observable<LoginResponse>{
     if (email && pass){
-      return this.http.post<LoginResponse>(this.loginUrl, {
+      return this.http.post<LoginResponse>(this.loginUrl + '/login', {
         email,
         password: pass
       }).pipe(tap(loginResponse => {

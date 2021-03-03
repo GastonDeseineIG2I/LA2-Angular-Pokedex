@@ -5,10 +5,12 @@ import {PokemonListComponent} from './pokemons/pokemon-list/pokemon-list.compone
 import {PokedexComponent} from './pokemons/pokedex/pokedex.component';
 import {LoginComponent} from './pokemons/login/login.component';
 import {AuthGuard} from './pokemons/auth.guard';
+import {TeamComponent} from './pokemons/team/team.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/pokedex', pathMatch: 'full' },
   { path: 'pokedex', component: PokedexComponent, canActivate: [AuthGuard] },
+  { path: 'team', component: TeamComponent, canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent },
   /*{ path: 'pokemons', component: PokemonListComponent },
   { path: 'detail/:id', component: PokemonDetailComponent }*/

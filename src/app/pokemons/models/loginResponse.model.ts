@@ -5,4 +5,8 @@ export interface LoginResponse {
   statusCode: string;
   error: string;
   message: string;
+  idToken: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
 }

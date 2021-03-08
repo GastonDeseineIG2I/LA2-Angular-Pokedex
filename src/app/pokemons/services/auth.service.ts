@@ -12,6 +12,7 @@ import * as moment from 'moment';
 export class AuthService {
 
   loginUrl = 'http://app-ec21e68e-3e55-42d7-b1ae-3eef7507a353.cleverapps.io/auth';
+  registerUrl = 'http://app-ec21e68e-3e55-42d7-b1ae-3eef7507a353.cleverapps.io/trainers';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,12 +23,29 @@ export class AuthService {
         password: pass
       }).pipe(tap(loginResponse => {
         if (loginResponse.access_token) {
-          console.log(loginResponse);
 
           const expire = moment(new Date()).add(loginResponse.expires_in, 'seconds').format('DD/MM/YYYY HH:mm:ss');
 
           sessionStorage.setItem('token', loginResponse.access_token);
           sessionStorage.setItem('refresh_token', loginResponse.refresh_token);
+          sessionStorage.setItem('expire', expire);
+        }
+      }));
+    }
+  }
+
+  register(email: string, pass: string): Observable<LoginResponse>{
+    if (email && pass){
+      return this.http.post<LoginResponse>(this.registerUrl, {
+        email,
+        password: pass
+      }).pipe(tap(loginResponse => {
+        if (loginResponse.idToken) {
+
+          const expire = moment(new Date()).add(loginResponse.expiresIn, 'seconds').format('DD/MM/YYYY HH:mm:ss');
+
+          sessionStorage.setItem('token', loginResponse.idToken);
+          sessionStorage.setItem('refresh_token', loginResponse.refreshToken);
           sessionStorage.setItem('expire', expire);
         }
       }));

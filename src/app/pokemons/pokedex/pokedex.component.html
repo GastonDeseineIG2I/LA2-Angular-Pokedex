@@ -1,6 +1,10 @@
 <div id="menu">
+  <button mat-raised-button color="accent" aria-label="Login" [routerLink]="['../team']" *ngIf="authService.isLogged()">
+    <mat-icon>groups</mat-icon>
+  </button>
   <button mat-raised-button color="accent" aria-label="Login" [routerLink]="['../login']">
-    <mat-icon>login</mat-icon>
+    <mat-icon *ngIf="authService.isLogged()">logout</mat-icon>
+    <mat-icon *ngIf="!authService.isLogged()">login</mat-icon>
   </button>
 </div>
 <mat-drawer-container class="pokedex-drawer">

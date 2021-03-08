@@ -1,1 +1,41 @@
-<div>Team is working!</div>
+<div id="menu">
+  <button mat-raised-button color="accent" aria-label="Login" [routerLink]="['../']">
+    <mat-icon>list</mat-icon>
+  </button>
+  <button mat-raised-button color="accent" aria-label="Login" [routerLink]="['../login']">
+    <mat-icon>logout</mat-icon>
+  </button>
+</div>
+<div id="team">
+  <mat-card class="team-card">
+    <mat-grid-list cols="3" rowHeight="280px">
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <img class="trainer" src="assets/img/sacha.png">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="2">
+
+        <mat-form-field class="example-chip-list">
+          <mat-chip-list #chipList  class="mat-chip-list" style="width: 100%">
+            <mat-chip
+              *ngFor="let pokemon of pokemonTeam"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="remove(pokemon.id)">
+              <img matListAvatar src="assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.name}}">
+              <span> {{pokemon.id}}. </span>
+              <span> {{pokemon.name}} </span>
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input
+              placeholder="New pokemon..."
+              #pokemonInput
+              [formControl]="pokemonCtrl"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+</div>

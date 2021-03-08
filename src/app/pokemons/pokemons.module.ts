@@ -18,6 +18,8 @@ import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { TeamComponent } from './team/team.component';
+import {MatOptionModule} from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -41,6 +43,8 @@ import { TeamComponent } from './team/team.component';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+    MatOptionModule,
+    MatAutocompleteModule,
   ]
 })
 export class PokemonsModule { }

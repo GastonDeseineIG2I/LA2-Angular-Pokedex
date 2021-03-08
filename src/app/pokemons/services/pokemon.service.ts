@@ -37,7 +37,7 @@ export class PokemonService {
     );
   }
 
-  searchPokemons(term: string, limit: number): Observable<PagedData<Pokemon>> {
+  searchPokemons(term: string, limit: number = 20): Observable<PagedData<Pokemon>> {
     if (!term.trim()) {
       return of(null);
     }

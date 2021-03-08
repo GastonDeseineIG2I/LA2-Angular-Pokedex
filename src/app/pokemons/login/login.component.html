@@ -5,7 +5,7 @@
   <hr><br>
   <mat-card-content>
     <div class="login_form_div">
-      <form (ngSubmit)="login()" class="login_form" #loginForm="ngForm">
+      <form class="login_form" #loginForm="ngForm">
         <div class="email_login_form">
           <mat-form-field appearance="fill">
             <mat-label>Entrez votre email</mat-label>
@@ -24,7 +24,9 @@
             <mat-error *ngIf="pass.invalid">{{getErrorMessage('pass')}}</mat-error>
           </mat-form-field>
         </div>
-        <button mat-raised-button color="accent" type='submit' [disabled]="!email.valid">Se connecter</button>
+        <button (click)="register()" mat-raised-button color="warn" type='submit' [disabled]="!email.valid">S'inscrire</button>
+        <div style="width:20px; height:auto; display:inline-block;"></div>
+        <button (click)="login()" mat-raised-button color="accent" type='submit' [disabled]="!email.valid">Se connecter</button>
       </form>
       <div *ngIf="showIncorrectIdMessage" role="alert" class="alert alert-danger">
         Identifiants incorrects

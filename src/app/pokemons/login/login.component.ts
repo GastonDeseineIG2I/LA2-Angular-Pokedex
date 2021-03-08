@@ -28,16 +28,25 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-
     if ( this.email.value === '' || this.pass.value === '' || this.email.hasError('email') ){
       return;
     }
-
     this.auth.login(this.email.value, this.pass.value).subscribe( (loginResponse: LoginResponse) => {
       if (this.auth.isLogged()) {
         this.router.navigate(['']);
       }else{
         this.showIncorrectIdMessage = true;
+      }
+    });
+  }
+
+  register(): void {
+    if ( this.email.value === '' || this.pass.value === '' || this.email.hasError('email') ){
+      return;
+    }
+    this.auth.register(this.email.value, this.pass.value).subscribe( (loginResponse: LoginResponse) => {
+      if (this.auth.isLogged()) {
+        this.router.navigate(['']);
       }
     });
   }

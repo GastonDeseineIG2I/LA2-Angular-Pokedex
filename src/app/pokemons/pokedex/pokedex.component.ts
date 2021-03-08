@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'pkm-pokedex',
@@ -11,7 +12,7 @@ export class PokedexComponent implements OnInit {
 
   searchTerm;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }

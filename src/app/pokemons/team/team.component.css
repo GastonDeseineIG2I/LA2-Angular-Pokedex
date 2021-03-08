@@ -1,3 +1,22 @@
+#menu {
+  height: 4vh !important;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+}
 
+.trainer {
+  height: 100%;
+}
+
+.team-card {
+  height: 600px;
+  width: 1000px;
+  margin: auto;
+}
+
+mat-chip {
+  padding: 20px !important;
+}
 
 /*# sourceMappingURL=team.component.css.map */

@@ -16,5 +16,14 @@
 }
 
 mat-chip {
-  padding: 20px!important;
+  padding: 30px!important;
+}
+
+mat-chip img{
+  display: block;
+  object-fit: cover;
+}
+
+mat-form-field{
+  width: 800px !important;
 }

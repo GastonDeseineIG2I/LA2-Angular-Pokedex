@@ -22,7 +22,7 @@ export class TeamComponent implements OnInit{
   separatorKeysCodes: number[] = [ENTER, COMMA];
   pokemonCtrl = new FormControl();
   filteredPokemons: Observable<string[]>;
-  pokemonIds: string[] = ['1', '2', '3', '4', '5', '6'];
+  pokemonIds: string[] = ['25', '101', '75', '94', '4', '8'];
   pokemonTeam = [];
   allPokemons: any[] = [];
 
@@ -60,11 +60,18 @@ export class TeamComponent implements OnInit{
     const input = event.input;
     const value = event.value;
 
-    this.pokemonService.getPokemon( parseInt(value, 0)).subscribe( pokemon => this.pokemonTeam.push(pokemon));
+    const pokemonExist = this.pokemonTeam.filter( el => el.id === parseInt(value, 0) );
 
-    if ((value || '').trim()) {
-      this.pokemonIds.push(value.trim());
+    if (pokemonExist.length > 0){
+      return;
     }
+
+    this.pokemonService.getPokemon( parseInt(value, 0)).subscribe( pokemon => {
+      if (pokemon !== undefined){
+        this.pokemonTeam.push(pokemon);
+      }
+    });
+
     if (input) {
       input.value = '';
     }

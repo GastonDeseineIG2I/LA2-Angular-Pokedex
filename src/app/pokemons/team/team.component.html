@@ -14,11 +14,19 @@
       </mat-grid-tile>
       <mat-grid-tile [colspan]="2" [rowspan]="2">
 
-        <mat-form-field class="example-chip-list">
+        <mat-form-field>
+          <input
+            placeholder="Ajouter un pokemon..."
+            #pokemonInput
+            [formControl]="pokemonCtrl"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)">
+
+          <hr>
           <mat-chip-list #chipList  class="mat-chip-list" style="width: 100%">
             <mat-chip
               *ngFor="let pokemon of pokemonTeam"
-              [selectable]="selectable"
               [removable]="removable"
               (removed)="remove(pokemon.id)">
               <img matListAvatar src="assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.name}}">
@@ -26,13 +34,6 @@
               <span> {{pokemon.name}} </span>
               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input
-              placeholder="New pokemon..."
-              #pokemonInput
-              [formControl]="pokemonCtrl"
-              [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event)">
           </mat-chip-list>
         </mat-form-field>
       </mat-grid-tile>
